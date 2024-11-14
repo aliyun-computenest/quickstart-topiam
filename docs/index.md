@@ -1,131 +1,86 @@
-# Demo服务实例部署文档
+# 快速部署 TOPIAM
 
-## 概述
+## 产品概述
 
-`(服务概述内容)`。
+TOPIAM 数字身份管控平台，以开源为核心的 IAM/IDaaS 身份管理平台，用于管理企业内员工账号、权限、身份认证、应用访问，帮助整合部署在本地或云端的内部办公系统、业务系统及三方 SaaS 系统的所有身份，实现一个账号打通所有应用的服务。
 
-```
-eg：
+## 核心特性
 
-Demo服务是计算巢提供的示例。
-本文向您介绍如何开通计算巢上的`Demo`服务，以及部署流程和使用说明。
-```
+- 提供统一组织信息管理，多维度建立对应关系，实现在一个平台对企业人员、组织架构、应用信息的高效统一管理。
+- 支持钉钉、飞书、企业微信等身份源集成能力，实现系统和企业 OA 平台数据联动，以用户为管理基点，结合入职、离职、调岗、兼职等人事事件，关联其相关应用权限变化而变化，保证应用访问权限的安全控制。
+- 支持多因素认证，行为验证码、社交认证，融合认证等机制，保证用户认证安全可靠。
+- 支持微信、微博、QQ 等社交认证集成，使企业具有快速纳入互联网化认证能力。
+- 支持 SAML2，OAuth2，OIDC，CAS，表单代填等认证协议及机制，实现单点登录功能，预配置大量 SaaS 应用及传统应用模板，开箱即用。
+- 完善的安全审计，详尽记录每一次用户行为，使每一步操作有据可循，实时记录企业信息安全状况，精准识别企业异常访问和潜在威胁的源头。
+- 提供标准 REST 和 SCIM2.0 接口轻松完成机构用户同步，实现企业对于账号生命周期的精细化管理。
+- 开源、安全、自主可控。
 
 ## 计费说明
 
-`(计费说明内容)`
-
-```
-eg:
-
-Demo在计算巢上的费用主要涉及：
+TOPIAM 数字身份管控平台在计算巢上的费用主要涉及：
 
 - 所选vCPU与内存规格
-- 系统盘类型及容量
+- 磁盘容量
 - 公网带宽
 
-计费方式包括：
+计费方式：
 
 - 按量付费（小时）
 - 包年包月
 
 目前提供如下实例：
 
-| 规格族 | vCPU与内存 | 系统盘 | 公网带宽 |
-| --- | --- | --- | --- |
-| ecs.r6.xlarge | 内存型r6，4vCPU 32GiB | ESSD云盘 200GiB PL0 | 固定带宽1Mbps |
+| 规格族 | vCPU与内存           | 系统盘 | 公网带宽         |
+| --- |-------------------| --- |--------------|
+| ecs.g8i.large | 通用型 2 vCPU，8 GiB  | ESSD云盘 40GiB | 按量付费带宽10Mbps |
+| ecs.g8i.large | 通用型 4 vCPU，16 GiB | ESSD云盘 40GiB | 按量付费带宽10Mbps |
+| ecs.g8i.large | 通用型 8 vCPU，32 GiB | ESSD云盘 40GiB | 按量付费带宽10Mbps |
+
+如需更多规格、其他服务（如集群高可用性要求、企业级支持服务等），请联系我们 [support@topiam.cn](mailto:support@topiam.cn)。
 
 预估费用在创建实例时可实时看到。
-如需更多规格、其他服务（如集群高可用性要求、企业级支持服务等），请联系我们 [mailto:xx@xx.com](mailto:xx@xx.com)。
-
-```
 
 ## 部署架构
 
-`(部署概述内容)`
+TOPIAM数字身份管控平台-社区版是单机部署架构。
 
 ## RAM账号所需权限
 
-`(权限策略内容)`
+TOPIAM数字身份管控平台服务需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见[为RAM用户授权](https://help.aliyun.com/document_detail/121945.html)
+。所需权限如下表所示。
 
-```
-eg: 
-
-Demo服务需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见[为RAM用户授权](https://help.aliyun.com/document_detail/121945.html)。所需权限如下表所示。
-
-
-| 权限策略名称 | 备注 |
-| --- | --- |
-| AliyunECSFullAccess | 管理云服务器服务（ECS）的权限 |
-
-```
+| 权限策略名称                          | 备注                         |
+|---------------------------------|----------------------------|
+| AliyunECSFullAccess             | 管理云服务器服务（ECS）的权限           |
+| AliyunVPCFullAccess             | 管理专有网络（VPC）的权限             |
+| AliyunROSFullAccess             | 管理资源编排服务（ROS）的权限           |
+| AliyunComputeNestUserFullAccess | 管理计算巢服务（ComputeNest）的用户侧权限 |
+| AliyunCloudMonitorFullAccess    | 管理云监控（CloudMonitor）的权限     |
 
 ## 部署流程
 
-### 部署步骤
+1. 单击 [部署链接](https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&ServiceName=TOPIAM%20数字身份管控平台-社区版)，进入服务实例部署界面。
 
-`(部署步骤内容)`
+2. 选择目标ECS实例，点击下一步：确认订单。
+   <img src="1.png" width="100%" align="bottom"/>
 
-```
-eg:
+3. 点击立即创建，等待服务实例创建完成。
+   <img src="2.png" width="100%" align="bottom"/>
 
-1. 单击部署链接，进入服务实例部署界面，根据界面提示，填写参数完成部署。
-2. 补充示意图。
-```
-### 部署参数说明
+4. 服务实例创建成功后，进入服务实例详情页。在概览页可获取TOPIAM登录信息。
+   <img src="3.png" width="100%" align="bottom"/>
 
-`(部署参数说明内容)`
-
-```
-eg:
-
-您在创建服务实例的过程中，需要配置服务实例信息。下文介绍云XR实时渲染平台服务实例输入参数的详细信息。
-
-| 参数组 | 参数项 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| 服务实例名称 |  | test | 实例的名称 |
-| 地域 |  | 华北2（北京） | 选中服务实例的地域，建议就近选中，以获取更好的网络延时。 |
-```
-
-### 验证结果
-
-`(验证结果内容)`
-
-```
-eg:
-
-1. 查看服务实例。服务实例创建成功后，部署时间大约需要2分钟。部署完成后，页面上可以看到对应的服务实例。 
-2. 通过服务实例访问TuGraph。进入到对应的服务实例后，可以在页面上获取到web、rpc、ssh共3种使用方式。
-```
-
-### 使用Demo
-
-`(服务使用说明内容)`
-
-```
-eg:
-
-请访问Demo官网了解如何使用：[使用文档](https://www.aliyun.com)
-```
-
-## 问题排查
-
-`(服务使用说明内容)`
-
-```
-eg:
-
-请访问[Demo的问题排查链接](https://www.aliyun.com)获取帮助。
-```
+5. 点击访问地址，登录TOPIAM数字身份管控平台。
+   <img src="4.png" width="100%" align="bottom"/>
 
 ## 联系我们
 
-欢迎访问Demo官网（[https://www.aliyun.com](https://www.aliyun.com)）了解更多信息。
+欢迎访问[TOPIAM 官网](https://aliyun.com)了解更多信息。
 
-联系邮箱：[https://www.aliyun.com](mailto:https://www.aliyun.com)
+联系邮箱：[support@topaim.cn](mailto:support@topaim.cn)
 
-社区版开源地址：[https://github.com/](https://github.com/)
+社区版开源地址：[https://github.com/topiam/eiam](https://github.com/topiam/eiam)
 
 扫码关注微信公众号，技术博客、活动通知不容错过：
 
-`(添加二维码图片)`
+<img alt="wxmp" src="wxmp-qr.jpg" width="245" height="245">
