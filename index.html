@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="计算巢是阿里云开放给企业应用服务商的服务管理平台。服务商能够在计算巢上发布私有化部署服务，为其客户提供云上软件一键部署的能力；同时也支持全托管模式的服务，赋能服务商托管其客户资源。">
+  <title>快速部署 TOPIAM - Aliyun 计算巢 x TOPIAM</title>
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  
+
+  
+
+  
+  
+
+  
+    <script src="search/main.js"></script>
+  
+
+  
+
+  <script src="js/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="./img/logo-2x.png">
+        </div>
+        <div class="nav-list">
+          <ul>
+          
+              <li><a href="#topiam">快速部署 TOPIAM</a></li>
+              
+                  <li><a href="#_1">产品概述</a></li>
+                  
+              
+                  <li><a href="#_2">核心特性</a></li>
+                  
+              
+                  <li><a href="#_3">计费说明</a></li>
+                  
+              
+                  <li><a href="#_4">部署架构</a></li>
+                  
+              
+                  <li><a href="#ram">RAM账号所需权限</a></li>
+                  
+              
+                  <li><a href="#_5">部署流程</a></li>
+                  
+              
+                  <li><a href="#_6">联系我们</a></li>
+                  
+              
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content theme-github">
+      
+      <div class="content-inner">        
+        
+        <h1 id="topiam">快速部署 TOPIAM</h1>
+<h2 id="_1">产品概述</h2>
+<p>TOPIAM 数字身份管控平台，以开源为核心的 IAM/IDaaS 身份管理平台，用于管理企业内员工账号、权限、身份认证、应用访问，帮助整合部署在本地或云端的内部办公系统、业务系统及三方 SaaS 系统的所有身份，实现一个账号打通所有应用的服务！</p>
+<h2 id="_2">核心特性</h2>
+<ul>
+<li>提供统一组织信息管理，多维度建立对应关系，实现在一个平台对企业人员、组织架构、应用信息的高效统一管理。</li>
+<li>支持钉钉、飞书、企业微信等身份源集成能力，实现系统和企业 OA 平台数据联动，以用户为管理基点，结合入职、离职、调岗、兼职等人事事件，关联其相关应用权限变化而变化，保证应用访问权限的安全控制。</li>
+<li>支持多因素认证，行为验证码、社交认证，融合认证等机制，保证用户认证安全可靠。</li>
+<li>支持微信、微博、QQ 等社交认证集成，使企业具有快速纳入互联网化认证能力。</li>
+<li>支持 SAML2，OAuth2，OIDC，CAS，表单代填等认证协议及机制，实现单点登录功能，预配置大量 SaaS 应用及传统应用模板，开箱即用。</li>
+<li>完善的安全审计，详尽记录每一次用户行为，使每一步操作有据可循，实时记录企业信息安全状况，精准识别企业异常访问和潜在威胁的源头。</li>
+<li>提供标准 REST 和 SCIM2.0 接口轻松完成机构用户同步，实现企业对于账号生命周期的精细化管理。</li>
+<li>开源、安全、自主可控。</li>
+</ul>
+<h2 id="_3">计费说明</h2>
+<p>TOPIAM 数字身份管控平台在计算巢上的费用主要涉及：</p>
+<ul>
+<li>所选vCPU与内存规格</li>
+<li>磁盘容量</li>
+<li>公网带宽</li>
+</ul>
+<p>计费方式：</p>
+<ul>
+<li>按量付费（小时）</li>
+<li>包年包月</li>
+</ul>
+<p>目前提供如下实例：</p>
+<table>
+<thead>
+<tr>
+<th>规格族</th>
+<th>vCPU与内存</th>
+<th>系统盘</th>
+<th>公网带宽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ecs.g8i.large</td>
+<td>通用型 2 vCPU，8 GiB</td>
+<td>ESSD云盘 40GiB</td>
+<td>按量付费带宽10Mbps</td>
+</tr>
+<tr>
+<td>ecs.g8i.large</td>
+<td>通用型 4 vCPU，16 GiB</td>
+<td>ESSD云盘 40GiB</td>
+<td>按量付费带宽10Mbps</td>
+</tr>
+<tr>
+<td>ecs.g8i.large</td>
+<td>通用型 8 vCPU，32 GiB</td>
+<td>ESSD云盘 40GiB</td>
+<td>按量付费带宽10Mbps</td>
+</tr>
+</tbody>
+</table>
+<p>如需更多规格、其他服务（如集群高可用性要求、企业级支持服务等），请联系我们 <a href="mailto:support@topiam.cn">support@topiam.cn</a>。</p>
+<p>预估费用在创建实例时可实时看到。</p>
+<h2 id="_4">部署架构</h2>
+<p>TOPIAM数字身份管控平台-社区版是单机部署架构。</p>
+<h2 id="ram">RAM账号所需权限</h2>
+<p>TOPIAM数字身份管控平台服务需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见<a href="https://help.aliyun.com/document_detail/121945.html">为RAM用户授权</a>
+。所需权限如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>权限策略名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AliyunECSFullAccess</td>
+<td>管理云服务器服务（ECS）的权限</td>
+</tr>
+<tr>
+<td>AliyunVPCFullAccess</td>
+<td>管理专有网络（VPC）的权限</td>
+</tr>
+<tr>
+<td>AliyunROSFullAccess</td>
+<td>管理资源编排服务（ROS）的权限</td>
+</tr>
+<tr>
+<td>AliyunComputeNestUserFullAccess</td>
+<td>管理计算巢服务（ComputeNest）的用户侧权限</td>
+</tr>
+<tr>
+<td>AliyunCloudMonitorFullAccess</td>
+<td>管理云监控（CloudMonitor）的权限</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">部署流程</h2>
+<ol>
+<li>
+<p>单击 <a href="https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&amp;ServiceName=TOPIAM%20数字身份管控平台-社区版">部署链接</a>，进入服务实例部署界面。</p>
+</li>
+<li>
+<p>选择目标ECS实例，点击下一步：确认订单。
+   <img src="1.png" width="100%" align="bottom"/></p>
+</li>
+<li>
+<p>点击立即创建，等待服务实例创建完成。
+   <img src="2.png" width="100%" align="bottom"/></p>
+</li>
+<li>
+<p>服务实例创建成功后，进入服务实例详情页。在概览页可获取TOPIAM登录信息。
+   <img src="3.png" width="100%" align="bottom"/></p>
+</li>
+<li>
+<p>点击访问地址，登录TOPIAM数字身份管控平台。
+   <img src="4.png" width="100%" align="bottom"/></p>
+</li>
+</ol>
+<h2 id="_6">联系我们</h2>
+<p>欢迎访问<a href="https://aliyun.com">TOPIAM 官网</a>了解更多信息。</p>
+<p>联系邮箱：<a href="mailto:support@topaim.cn">support@topaim.cn</a></p>
+<p>社区版开源地址：<a href="https://github.com/topiam/eiam">https://github.com/topiam/eiam</a></p>
+<p>扫码关注微信公众号，技术博客、活动通知不容错过：</p>
+<p><img alt="wxmp" src="wxmp-qr.jpg" width="245" height="245"></p>
+        
+      </div>
+
+      <div class="copyrights">© 2009-2022 Aliyun.com 版权所有</div>
+    </div>
+  </div>
+  
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2025-03-25 07:08:53.892692+00:00
+  -->
+</body>
+</html>
